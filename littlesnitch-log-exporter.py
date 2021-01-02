@@ -132,7 +132,7 @@ if __name__ == '__main__':
     Log = logging.getLogger(__name__)
     Log.setLevel(logging.INFO)
     # Console Handler
-    consoleHandler = logging.StreamHandler()
+    consoleHandler = logging.StreamHandler(sys.stdout)
     consoleHandler.setFormatter(logFormatter)
     Log.addHandler(consoleHandler)
 
