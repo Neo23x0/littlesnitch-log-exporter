@@ -2,7 +2,7 @@
 
 A log statistics exporter for [LittleSnitch](https://www.obdev.at/products/littlesnitch/index.html) macOS personal packet filter by Objective Development.
 
-# Use Case
+## Use Case
 
 The idea is to create a frequent export of all connections made from or to a macOS system in order to identify suspicious or malicious behaviour. 
 
@@ -38,18 +38,35 @@ It's a summary of each app's connections (see COUNT), contains a timestamp (time
 
 The idea is to schedule a log export, e.g. with a local cron job and syslog forwarding or using the script input of commercial agents like [splunk's forwarder](https://docs.splunk.com/Documentation/Splunk/latest/Admin/inputsconf#Scripted_Input:). 
 
-# Requirements
+## Requirements
 
 - LittleSnitch 5
 - Python 3
 - Root access
 
-# Get Started
+### Allow Terminal CLI Access
+
+In order to access the log data, you have to grant access to the command line interface tool. 
+
+![Screen 1](./images/setup1.png)
+
+## Get Started
 
 1. Download Python script
 2. Check "Allow access from terminal" in LittleSnitch Preferences > Security
-3. Run it once `sudo python littlesnitch-log-exporter.py`
+3. Run it once `sudo python3 littlesnitch-log-exporter.py`
 
-# Frequent Log Statistics Export
+
+## Show Noteworthy Connections
+
+I've implemented a feature that allows you to filter all expected traffic and show only connections considered 'noteworthy'. With the use of the predefined filters you can filter down the connections made by your system in 24h to handful that can be reviewed manually.
+
+Show only noteworthy connections of the last 24 hours. 
+
+```
+sudo python3 littlesnitch-log-exporter.py -m 3600 --noteworthy
+```  
+
+## Frequent Log Statistics Export
 
 TBD
