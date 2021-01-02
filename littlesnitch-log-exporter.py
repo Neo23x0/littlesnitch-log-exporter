@@ -112,7 +112,10 @@ def filter_stats(combo_list_sorted):
                      'lencr.org', 'verisign.com', 'sectigo.com', 'appcenter.ms', 'python.org', 'pypi.org',
                      'sharepoint.com', 'office.com', 'cloudapp.net', 'office365.com', 'microsoft.com', 'sfx.ms',
                      'outlook.com', 'windows.net', 'azurewebsites.net', 'office.net', 'skype.com', 'msecnd.net',
-                     'exp-tas.com', 'yahoo.com', 'networking.apple']
+                     'exp-tas.com', 'yahoo.com', 'networking.apple', 'twimg.com', 'gravatar.com', 'twitter.com',
+                     'citrix.com', 'comodoca.com', 'usertrust.com', 'globalsign.com', 'entrust.net', 'symcd.com',
+                     'godaddy.com', 'identrust.com', 'onedrive.com', 'live.net', 'windows.com', 'windowsupdate.com',
+                     'dropbox.com', 'onenote.net', 'adobe.com', 'dns.google', 'crashlytics.com']
     browsers = ['Google Chrome.app', 'com.apple.WebKit.Networking', 'Firefox.app', 'Opera', 'Brave Browser.app']
     vpn_software = ['openvpn']
     dns = ['mDNSResponder']
