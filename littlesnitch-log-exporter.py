@@ -188,25 +188,31 @@ if __name__ == '__main__':
     # Parse Arguments
     parser = argparse.ArgumentParser(description='LittleSnitch Log Statistics Exporter')
     parser.add_argument('-m', metavar='minutes', default='60', help='Process the logs of that X minutes (default=60)')
-    parser.add_argument('-l', help='Log file (default: littlesnitch-log-export.log)', metavar='logfile', default=r'littlesnitch-log-export.log')
+    parser.add_argument('-l', help='Log file (default: littlesnitch-log-export.log)', metavar='logfile',
+                        default=r'littlesnitch-log-export.log')
     parser.add_argument('-s', metavar='sort-key', default='connectingExecutable',
                         help='Key to sort the output statistics (available: direction, connectingExecutable, '
                              'ipAddress, remoteHostname, port, count) (default=connectingExecutable)')
+    parser.add_argument('--nolog', action='store_true', default=False,
+                        help="Only print to STDOUT")
+    parser.add_argument('--noteworthy', action='store_true', default=False,
+                        help='Show connections considered interesting (Florian\'s magic)')
     parser.add_argument('--debug', action='store_true', default=False, help='Debug output')
-    parser.add_argument('--noteworthy', action='store_true', default=False, help='Show connections considered interesting (Florian\'s magic)')
     args = parser.parse_args()
 
     # Logging
-    logFormatter = logging.Formatter("%(asctime)s {}: %(message)s".format(platform.node()))
+    logFormatter_file = logging.Formatter("%(asctime)s {}: %(message)s".format(platform.node()))
+    logFormatter_console = logging.Formatter("%(message)s")
     Log = logging.getLogger(__name__)
     Log.setLevel(logging.INFO)
     # File Handler
     fileHandler = logging.FileHandler(args.l)
-    fileHandler.setFormatter(logFormatter)
-    Log.addHandler(fileHandler)
+    fileHandler.setFormatter(logFormatter_file)
+    if not args.nolog:
+        Log.addHandler(fileHandler)
     # Console Handler
     consoleHandler = logging.StreamHandler(sys.stdout)
-    consoleHandler.setFormatter(logFormatter)
+    consoleHandler.setFormatter(logFormatter_console)
     Log.addHandler(consoleHandler)
 
     # Collect the logs
