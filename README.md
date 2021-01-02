@@ -44,20 +44,15 @@ The idea is to schedule a log export, e.g. with a local cron job and syslog forw
 - Python 3
 - Root access
 
-### Allow Terminal CLI Access
-
-In order to access the log data, you have to grant access to the command line interface tool. 
-
-![Screen 1](./images/setup1.png)
-
 ## Get Started
 
 1. Download Python script
-2. Check "Allow access from terminal" in LittleSnitch Preferences > Security
+2. Check "Allow access from terminal" in LittleSnitch Preferences > Security (see image below)
 3. Run it once `sudo python3 littlesnitch-log-exporter.py`
 
+By default, it will return statistics over the last 60 minutes. 
 
-## Show Noteworthy Connections
+## Show Only Noteworthy Connections
 
 I've implemented a feature that allows you to filter all expected traffic and show only connections considered 'noteworthy'. With the use of the predefined filters you can filter down the connections made by your system in 24h to handful that can be reviewed manually.
 
@@ -66,6 +61,12 @@ Show only noteworthy connections of the last 24 hours.
 ```
 sudo python3 littlesnitch-log-exporter.py -m 3600 --noteworthy
 ```  
+
+### Allow Terminal CLI Access
+
+In order to access the log data, you have to grant access to the command line interface tool. 
+
+![Screen 1](./images/setup1.png)
 
 ## Frequent Log Statistics Export
 
