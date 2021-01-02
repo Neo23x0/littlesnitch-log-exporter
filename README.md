@@ -48,7 +48,7 @@ The idea is to schedule a log export, e.g. with a local cron job and syslog forw
 
 1. Download Python script
 2. Check "Allow access from terminal" in LittleSnitch Preferences > Security (see image below)
-3. Run it once `sudo python3 littlesnitch-log-exporter.py`
+3. Run the script `sudo python3 littlesnitch-log-exporter.py`
 
 By default, it will return statistics over the last 60 minutes. 
 

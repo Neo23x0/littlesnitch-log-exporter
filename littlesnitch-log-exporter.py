@@ -209,6 +209,8 @@ if __name__ == '__main__':
     # Collect the logs
     log_lines = collect_logs(int(args.m))
     stats = generate_statistics(log_lines, args.s)
+    # Filter out the expected traffic
     if args.noteworthy:
         stats = filter_stats(stats)
+
     print_stats(stats)
