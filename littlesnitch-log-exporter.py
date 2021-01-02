@@ -206,9 +206,9 @@ if __name__ == '__main__':
     Log = logging.getLogger(__name__)
     Log.setLevel(logging.INFO)
     # File Handler
-    fileHandler = logging.FileHandler(args.l)
-    fileHandler.setFormatter(logFormatter_file)
     if not args.nolog:
+        fileHandler = logging.FileHandler(args.l)
+        fileHandler.setFormatter(logFormatter_file)
         Log.addHandler(fileHandler)
     # Console Handler
     consoleHandler = logging.StreamHandler(sys.stdout)
