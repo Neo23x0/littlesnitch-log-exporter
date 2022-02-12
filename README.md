@@ -1,3 +1,5 @@
+[![Inactively Maintained](https://img.shields.io/badge/Maintenance%20Level-Inactively%20Maintained-yellowgreen.svg)](https://gist.github.com/cheerfulstoic/d107229326a01ff0f333a1d3476e068d)
+
 # littlesnitch-log-exporter
 
 A log statistics exporter for [LittleSnitch](https://www.obdev.at/products/littlesnitch/index.html) macOS personal packet filter by Objective Development.
