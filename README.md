@@ -60,7 +60,8 @@ Show only noteworthy connections of the last 24 hours.
 
 ```
 sudo python3 littlesnitch-log-exporter.py -m 3600 --noteworthy
-```  
+```
+
 
 ### Allow Terminal CLI Access
 

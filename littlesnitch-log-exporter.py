@@ -115,11 +115,14 @@ def filter_stats(combo_list_sorted):
                      'exp-tas.com', 'yahoo.com', 'networking.apple', 'twimg.com', 'gravatar.com', 'twitter.com',
                      'citrix.com', 'comodoca.com', 'usertrust.com', 'globalsign.com', 'entrust.net', 'symcd.com',
                      'godaddy.com', 'identrust.com', 'onedrive.com', 'live.net', 'windows.com', 'windowsupdate.com',
-                     'dropbox.com', 'onenote.net', 'adobe.com', 'dns.google', 'crashlytics.com']
-    browsers = ['Google Chrome.app', 'com.apple.WebKit.Networking', 'Firefox.app', 'Opera', 'Brave Browser.app']
+                     'dropbox.com', 'onenote.net', 'adobe.com', 'dns.google', 'crashlytics.com', 'apple.news',
+                     'giphy.com', 'ocsp.pki.goog', 'ocsp.swisssign.net', 'weather.partners.msn.com']
+    browsers = ['Google Chrome.app', 'com.apple.WebKit.Networking', 'Firefox.app', 'Opera', 'Brave Browser.app', 
+                'Discord Helper', 'Microsoft Teams Helper (Renderer)']
     vpn_software = ['openvpn']
     dns = ['mDNSResponder']
     re_app_split = re.compile(r'[^\w]')
+    re_ip = re.compile('^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\.[0-9]{3}$')
 
     # New list relevant connections
     new_combo_list = []
@@ -129,8 +132,9 @@ def filter_stats(combo_list_sorted):
         if c['direction'] == "in":
             continue
         # Private IP addresses
-        if ipaddress.ip_address(c['ipAddress']).is_private:
-            skip = True
+        if re_ip.match(c['ipAddress']):
+            if ipaddress.ip_address(c['ipAddress']).is_private:
+                skip = True
         # Browser web access
         for b in browsers:
             if b in c['connectingExecutable'] and ( c['port'] == 443 or c['port'] == 80 or c['port'] == 5228):
