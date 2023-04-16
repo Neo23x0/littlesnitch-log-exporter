@@ -153,7 +153,7 @@ def filter_stats(combo_list_sorted):
                     skip = True
         # Allowed hosts
         for ah in allowed_hosts:
-            if c['remoteHostname'].endswith(".%s" % ah):
+            if c['remoteHostname'].endswith("%s" % ah):
                 skip = True
             if c['ipAddress'] == ah:
                 skip = True
